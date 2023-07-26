@@ -1,0 +1,23 @@
+.Result {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 50px;
+    gap: 10px;
+}
+
+.Result button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18%;
+    font-size: 500%;
+}
+
+.Message {
+    font-size: 300%;
+}
+
+.Question {
+    font-size: 500%;
+}

@@ -8,48 +8,63 @@ function Minus() {
     return Math.floor(Math.random() * (maxx - minx) + minx);
   }
 
-  const [numFirst, setNumFirst] = useState(getRandomInt(0, 10));
+  function timeout(delay: number) {
+    return new Promise(res => setTimeout(res, delay));
+  }
+
+  const [numFirst, setNumFirst] = useState(0);
   const [numSecound, setNumSecound] = useState(0);
+  const [numQuestion, setNumQuestion] = useState(0);
   const [result, setResult] = useState(0);
   const [message, setMessage] = useState("");
-
+  const [disableButton, setDisableButton] = useState(false);
+  
   useEffect(() => {
-    setNumSecound(getRandomInt(0, numFirst));
-  }, [numFirst]);
+    nextQuestion();
+  }, []);
 
-  useEffect(() => {
-    setResult(numFirst - numSecound);
-    setMessage("わかるかな")
-  }, [numFirst, numSecound]);
+  function nextQuestion() {
+    const nextNum1 = getRandomInt(0, 10);
+    const nextNum2 = getRandomInt(0, nextNum1)
+    setNumFirst(nextNum1);
+    setNumSecound(nextNum2);
+    setResult(nextNum1 - nextNum2);
+    setMessage("わかるかな");
+    setDisableButton(false);
+    setNumQuestion((prevNum) =>prevNum + 1);
+  }
 
-  function onClick(e: React.MouseEvent<HTMLElement>) {
+  async function onClick(e: React.MouseEvent<HTMLElement>) {
     const myresult = Number(e.currentTarget.textContent);
     if (result == myresult) {
+      setDisableButton(true);
       setMessage("せいかい")
-      setNumFirst(getRandomInt(0, 10));
+      await timeout(1000);
+      nextQuestion();
     }
     else {
       setMessage("ふせいかい")
     }
-
   }
 
 
   return (
     <div className="Minus">
-      <div>{message}</div>
-      <div>{numFirst} - {numSecound} = ?</div>
-      <button onClick={ onClick }>0</button>
-      <button onClick={ onClick }>1</button>
-      <button onClick={ onClick }>2</button>
-      <button onClick={ onClick }>3</button>
-      <button onClick={ onClick }>4</button>
-      <button onClick={ onClick }>5</button>
-      <button onClick={ onClick }>6</button>
-      <button onClick={ onClick }>7</button>
-      <button onClick={ onClick }>8</button>
-      <button onClick={ onClick }>9</button>
-      <button onClick={ onClick }>10</button>
+      <div className="Message">{numQuestion}もんめ {message}</div>
+      <div className="Question">{numFirst} - {numSecound} = ?</div>
+      <div className="Result">
+        <button onClick={ onClick } disabled={disableButton}>0</button>
+        <button onClick={ onClick } disabled={disableButton}>1</button>
+        <button onClick={ onClick } disabled={disableButton}>2</button>
+        <button onClick={ onClick } disabled={disableButton}>3</button>
+        <button onClick={ onClick } disabled={disableButton}>4</button>
+        <button onClick={ onClick } disabled={disableButton}>5</button>
+        <button onClick={ onClick } disabled={disableButton}>6</button>
+        <button onClick={ onClick } disabled={disableButton}>7</button>
+        <button onClick={ onClick } disabled={disableButton}>8</button>
+        <button onClick={ onClick } disabled={disableButton}>9</button>
+        <button onClick={ onClick } disabled={disableButton}>10</button>
+      </div>
     </div>
   );
 }
