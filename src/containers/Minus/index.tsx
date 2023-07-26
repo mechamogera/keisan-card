@@ -30,20 +30,27 @@ function Minus() {
     setNumSecound(nextNum2);
     setResult(nextNum1 - nextNum2);
     setMessage("わかるかな");
-    setDisableButton(false);
     setNumQuestion((prevNum) =>prevNum + 1);
+    const uttr = new SpeechSynthesisUtterance(`${nextNum1} まいなす ${nextNum2} は？`);
+    setDisableButton(false);
+    speechSynthesis.speak(uttr);
   }
 
   async function onClick(e: React.MouseEvent<HTMLElement>) {
     const myresult = Number(e.currentTarget.textContent);
     if (result == myresult) {
       setDisableButton(true);
-      setMessage("せいかい")
-      await timeout(1000);
-      nextQuestion();
+      setMessage("せいかい");
+      const uttr = new SpeechSynthesisUtterance(`せいかい`);
+      uttr.onend = () => {
+        nextQuestion();
+      }
+      speechSynthesis.speak(uttr);      
     }
     else {
       setMessage("ふせいかい")
+      const uttr = new SpeechSynthesisUtterance(`まちがい`);
+      speechSynthesis.speak(uttr);
     }
   }
 
