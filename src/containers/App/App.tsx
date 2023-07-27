@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css';
-import Minus from '../Minus';
+import Keisan from '../Keisan';
 
 
 function App() {
@@ -9,7 +9,16 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <Routes>
-        <Route path="*" element={ <Minus /> } />
+        <Route path="/keisan-card/plus" 
+               element={ <Keisan resultRange={[0, 10]} 
+                                operation="+" 
+                                num1Range={[0, 10]}
+                                num2Range={(num1: number) : number[] => { return [0, 10 - num1]; }} /> } />
+        <Route path="*" 
+               element={ <Keisan resultRange={[0, 10]} 
+                                operation="-" 
+                                num1Range={[0, 10]}
+                                num2Range={(num1: number) : number[] => { return [0, num1]; }} /> } />
       </Routes>
       </BrowserRouter>
     </div>
