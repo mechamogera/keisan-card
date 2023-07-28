@@ -66,7 +66,7 @@ function Keisan({resultRange,
     setResult(getResult(nextNum1, nextNum2, operation));
     setMessage("わかるかな");
     setNumQuestion((prevNum) =>prevNum + 1);
-    const uttr = new SpeechSynthesisUtterance(`${nextNum1} ${getReading(operation)} ${nextNum2} は？`);
+    const uttr = new SpeechSynthesisUtterance(`${nextNum1} ${getReading(operation)} ${nextNum2} わ？`);
     setDisableButton(false);
     speechSynthesis.speak(uttr);
   }
