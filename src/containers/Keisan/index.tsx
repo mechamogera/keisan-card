@@ -47,10 +47,20 @@ function Keisan({resultRange,
   const [message, setMessage] = useState("");
   const [disableButton, setDisableButton] = useState(false);
   
+  function nextValue(beforeNum1: number, beforeNum2: number) : [number, number] {
+    while (true) {
+      const nextNum1 = getRandomInt(num1Range[0], num1Range[1]);
+      const nextNum2Range = num2Range(nextNum1);
+      const nextNum2 = getRandomInt(nextNum2Range[0], nextNum2Range[1]);
+      if (beforeNum1 !== nextNum1 || beforeNum2 !== nextNum2) {
+        return [nextNum1, nextNum2];
+      }
+    }
+  }
+
   function nextQuestion() {
-    const nextNum1 = getRandomInt(num1Range[0], num1Range[1]);
-    const nextNum2Range = num2Range(nextNum1);
-    const nextNum2 = getRandomInt(nextNum2Range[0], nextNum2Range[1])
+    const [nextNum1, nextNum2] = nextValue(numFirst, numSecound);
+
     setNumFirst(nextNum1);
     setNumSecound(nextNum2);
     setResult(getResult(nextNum1, nextNum2, operation));
