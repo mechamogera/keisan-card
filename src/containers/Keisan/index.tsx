@@ -3,16 +3,9 @@ import './keisan.css';
 
 function Keisan({resultRange, 
                 operation, 
-                num1Range,
-                num2Range}: { resultRange: number[], 
+                nextValueProc}: { resultRange: number[], 
                               operation: string, 
-                              num1Range: number[],
-                              num2Range: (num1:number) => number[]}) {
-  function getRandomInt(min:number, max:number) {
-    const minx = Math.ceil(min);
-    const maxx = Math.floor(max + 1);
-    return Math.floor(Math.random() * (maxx - minx) + minx);
-  }
+                              nextValueProc: (beforeNum1:number, beforNum2:number) => { num1:number, num2:number }}) {
 
   function getReading(operation: string) : string {
     switch(operation) {
@@ -46,21 +39,11 @@ function Keisan({resultRange,
   const [result, setResult] = useState(0);
   const [message, setMessage] = useState("");
   const [disableButton, setDisableButton] = useState(false);
-  
-  function nextValue(beforeNum1: number, beforeNum2: number) : [number, number] {
-    while (true) {
-      const nextNum1 = getRandomInt(num1Range[0], num1Range[1]);
-      const nextNum2Range = num2Range(nextNum1);
-      const nextNum2 = getRandomInt(nextNum2Range[0], nextNum2Range[1]);
-      if (beforeNum1 !== nextNum1 || beforeNum2 !== nextNum2) {
-        return [nextNum1, nextNum2];
-      }
-    }
-  }
 
   function nextQuestion() {
-    const [nextNum1, nextNum2] = nextValue(numFirst, numSecound);
-
+    const nextVal = nextValueProc(numFirst, numSecound);
+    const nextNum1 = nextVal.num1;
+    const nextNum2 = nextVal.num2;
     setNumFirst(nextNum1);
     setNumSecound(nextNum2);
     setResult(getResult(nextNum1, nextNum2, operation));
