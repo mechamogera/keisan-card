@@ -87,7 +87,7 @@ function Keisan({resultRange,
   const Results = () => {
     const List = [];
     for (let i = resultRange[0]; i <= resultRange[1]; i++) {
-      List.push(<button onClick={ onClick } disabled={disableButton}>{i}</button>);
+      List.push(<button key={i} onClick={ onClick } disabled={disableButton}>{i}</button>);
     }
     return List;
   }
