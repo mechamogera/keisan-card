@@ -3,8 +3,10 @@ import './keisan.css';
 
 function Keisan({resultRange, 
                 operation, 
+                listSize,
                 nextValueProc}: { resultRange: number[], 
                               operation: string, 
+                              listSize: number,
                               nextValueProc: (beforeNum1:number, beforNum2:number) => { num1:number, num2:number }}) {
 
   function getReading(operation: string) : string {
@@ -88,7 +90,7 @@ function Keisan({resultRange,
 
   return (
     <div className="Minus">
-      <div className="Message">{numQuestion}もんめ {message}</div>
+      <div className="Message">{numQuestion}/{listSize}もんめ {message}</div>
       <div className="Question">{numFirst} {operation} {numSecound} = ?</div>
       <div className="Result">
         {Results()}

@@ -53,11 +53,13 @@ function App() {
       <Routes>
         <Route path="/keisan-card/plus" 
                element={ <Keisan resultRange={[0, 10]} 
-                                operation="+" 
+                                operation="+"
+                                listSize={plusList.length}
                                 nextValueProc={getNextValueProc(plusList, makePlusList)} /> } />
         <Route path="*" 
                element={ <Keisan resultRange={[0, 10]} 
-                                operation="-" 
+                                operation="-"
+                                listSize={minusList.length}
                                 nextValueProc={getNextValueProc(minusList, makeMinusList)} /> } />
       </Routes>
       </BrowserRouter>
