@@ -91,7 +91,21 @@ function Keisan({resultRange,
   return (
     <div className="Minus">
       <div className="Message">{numQuestion}/{listSize}もんめ {message}</div>
-      <div className="Question">{numFirst} {operation} {numSecound} = ?</div>
+      <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 143 67" xmlSpace="preserve"
+      className="Svg">
+        <desc>Created with Fabric.js 5.3.0</desc>
+        <defs>
+        </defs>
+        <g transform="matrix(1 0 0 1 71.399839099 33.216879686)" id="pC9xTmbnF08ShyWQyhTOu"  >
+        <path id="path1" vector-effect="non-scaling-stroke"  transform=" translate(0, 0)" d="M -63.95817 26.34755 L -63.95817 -26.347540000000002 L 48.27031 -26.347540000000002 L 63.95816 -12.268700000000003 L 63.95816 26.34755 z" stroke-linecap="round" />
+        </g>
+        <g transform="matrix(0.6674346462 0 0 0.6674346462 22.8450079881 33.216879686)" id="ds_CRH4EIXnDdjH3cn4ez"  >
+        <path id="path2" vector-effect="non-scaling-stroke"  transform=" translate(0, 0)" d="M 0 -8.04505 C 4.44087 -8.04505 8.04505 -4.44087 8.04505 0 C 8.04505 4.44087 4.44087 8.04505 0 8.04505 C -4.44087 8.04505 -8.04505 4.44087 -8.04505 0 C -8.04505 -4.44087 -4.44087 -8.04505 0 -8.04505 z" stroke-linecap="round" />
+        </g>
+        <g transform="matrix(1 0 0 1 82.2328910304 33.216879686)"  id="DGg7km4RwZXg7n7ySh3Dw">
+            <text xmlSpace="preserve" font-family="Open Sans" font-size="31" font-style="normal" font-weight="normal" line-height="1" id="txt"><tspan x="-48.4904785156" y="11.25334">{numFirst} {operation} {numSecound}</tspan></text>
+        </g>
+      </svg>
       <div className="Result">
         {Results()}
       </div>
