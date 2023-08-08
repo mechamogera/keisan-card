@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useStopwatch } from "react-timer-hook";
 import './keisan.css';
 
 function Keisan({resultRange, 
@@ -41,6 +42,10 @@ function Keisan({resultRange,
   const [result, setResult] = useState(0);
   const [message, setMessage] = useState("");
   const [disableButton, setDisableButton] = useState(false);
+
+  const { seconds, minutes, hours, days, isRunning, start, pause, reset } =
+    useStopwatch({ autoStart: true });
+
 
   function nextQuestion() {
     const nextVal = nextValueProc(numFirst, numSecound);
@@ -90,6 +95,7 @@ function Keisan({resultRange,
 
   return (
     <div className="Minus">
+      <div className="Timer"><span>{('00' + minutes).slice(-2)}</span>:<span>{('00' + seconds).slice(-2)}</span></div>
       <div className="Message">{numQuestion}/{listSize}もんめ {message}</div>
       <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 143 67" xmlSpace="preserve"
       className="Svg">
