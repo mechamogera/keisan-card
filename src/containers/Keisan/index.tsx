@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useStopwatch } from "react-timer-hook";
 import './keisan.css';
 
@@ -46,6 +47,10 @@ function Keisan({resultRange,
   const { seconds, minutes, hours, days, isRunning, start, pause, reset } =
     useStopwatch({ autoStart: true });
 
+  const search = useLocation().search;
+  const query = new URLSearchParams(search);
+  const nospeech = query.get('nospeech');
+
 
   function nextQuestion() {
     const nextVal = nextValueProc(numFirst, numSecound);
@@ -56,9 +61,11 @@ function Keisan({resultRange,
     setResult(getResult(nextNum1, nextNum2, operation));
     setMessage("わかるかな");
     setNumQuestion((prevNum) =>prevNum + 1);
-    const uttr = new SpeechSynthesisUtterance(`${nextNum1} ${getReading(operation)} ${nextNum2} わ？`);
     setDisableButton(false);
-    speechSynthesis.speak(uttr);
+    if (!nospeech) {
+      const uttr = new SpeechSynthesisUtterance(`${nextNum1} ${getReading(operation)} ${nextNum2} わ？`);
+      speechSynthesis.speak(uttr);
+    }
   }
 
   useEffect(() => {
@@ -71,16 +78,22 @@ function Keisan({resultRange,
     if (result === myresult) {
       setDisableButton(true);
       setMessage("せいかい");
-      const uttr = new SpeechSynthesisUtterance(`せいかい`);
-      uttr.onend = () => {
+      if (!nospeech) {
+        const uttr = new SpeechSynthesisUtterance(`せいかい`);
+        uttr.onend = () => {
+          nextQuestion();
+        }
+        speechSynthesis.speak(uttr);
+      } else {
         nextQuestion();
       }
-      speechSynthesis.speak(uttr);      
     }
     else {
-      setMessage("ふせいかい")
-      const uttr = new SpeechSynthesisUtterance(`まちがい`);
-      speechSynthesis.speak(uttr);
+      setMessage("ふせいかい");
+      if (!nospeech) {
+        const uttr = new SpeechSynthesisUtterance(`まちがい`);
+        speechSynthesis.speak(uttr);
+      }
     }
   }
 
