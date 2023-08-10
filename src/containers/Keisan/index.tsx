@@ -43,6 +43,7 @@ function Keisan({resultRange,
   const [result, setResult] = useState(0);
   const [message, setMessage] = useState("");
   const [disableButton, setDisableButton] = useState(false);
+  const [resultNumber, setResultNumber] = useState<number|null>(null)
 
   const { seconds, minutes, hours, days, isRunning, start, pause, reset } =
     useStopwatch({ autoStart: true });
@@ -68,6 +69,7 @@ function Keisan({resultRange,
     setMessage(`${numQuestion + 1}/${listSize}もんめ わかるかな`);
     setNumQuestion((prevNum) =>prevNum + 1);
     setDisableButton(false);
+    setResultNumber(null);
     if (!nospeech) {
       const uttr = new SpeechSynthesisUtterance(`${nextNum1} ${getReading(operation)} ${nextNum2} わ？`);
       speechSynthesis.speak(uttr);
@@ -84,6 +86,7 @@ function Keisan({resultRange,
     if (result === myresult) {
       setDisableButton(true);
       setMessage("せいかい");
+      setResultNumber(result);
       if (!nospeech) {
         const uttr = new SpeechSynthesisUtterance(`せいかい`);
         uttr.onend = () => {
@@ -106,7 +109,7 @@ function Keisan({resultRange,
   const Results = () => {
     const List = [];
     for (let i = resultRange[0]; i <= resultRange[1]; i++) {
-      List.push(<button key={i} onClick={ onClick } disabled={disableButton}>{i}</button>);
+      List.push(<button className={resultNumber === i ? "ResultButton Push" : "ResultButton"} key={i} onClick={ onClick } disabled={disableButton}>{i}</button>);
     }
     return List;
   }
