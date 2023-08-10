@@ -56,6 +56,11 @@ function App() {
                                 operation="+"
                                 listSize={plusList.length}
                                 nextValueProc={getNextValueProc(plusList, makePlusList)} /> } />
+        <Route path="/keisan-card/test" 
+               element={ <Keisan resultRange={[0, 10]} 
+                                operation="+"
+                                listSize={3}
+                                nextValueProc={() => { return {num1: 1, num2: 2} }} /> } />
         <Route path="*" 
                element={ <Keisan resultRange={[0, 10]} 
                                 operation="-"

@@ -53,13 +53,19 @@ function Keisan({resultRange,
 
 
   function nextQuestion() {
+    if (numQuestion >= listSize) {
+      setMessage("おわり");
+      pause();
+      return;
+    }
+
     const nextVal = nextValueProc(numFirst, numSecound);
     const nextNum1 = nextVal.num1;
     const nextNum2 = nextVal.num2;
     setNumFirst(nextNum1);
     setNumSecound(nextNum2);
     setResult(getResult(nextNum1, nextNum2, operation));
-    setMessage("わかるかな");
+    setMessage(`${numQuestion + 1}/${listSize}もんめ わかるかな`);
     setNumQuestion((prevNum) =>prevNum + 1);
     setDisableButton(false);
     if (!nospeech) {
@@ -109,7 +115,7 @@ function Keisan({resultRange,
   return (
     <div className="Minus">
       <div className="Timer"><span>{('00' + minutes).slice(-2)}</span>:<span>{('00' + seconds).slice(-2)}</span></div>
-      <div className="Message">{numQuestion}/{listSize}もんめ {message}</div>
+      <div className="Message">{message}</div>
       <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 143 67" xmlSpace="preserve"
       className="Svg">
         <desc>Created with Fabric.js 5.3.0</desc>
