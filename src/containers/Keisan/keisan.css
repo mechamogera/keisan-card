@@ -11,7 +11,6 @@
     justify-content: center;
     align-items: center;
     width: 30%;
-    font-size: 8vw;
     border-radius: 4vw;
     background: #AFDFE4;
     transition: transform .2s;
@@ -19,6 +18,8 @@
         transform: scale(.95);
         background: #09DDE0
     }
+    font-size: 8vw;
+    font-family: 'Kiwi Maru', serif;
 }
 
 .ResultButton.Push {
@@ -26,8 +27,9 @@
 }
 
 .Message {
-    font-size: 5vw;
     height: 5vw;
+    font-size: 5vw;
+    font-family: 'Kiwi Maru', serif;
 }
 
 .Svg {
@@ -36,9 +38,10 @@
 }
 
 .Timer {
-    font-size: 3vw;
     text-align: left;
     padding-left: 1vw;
+    font-size: 3vw;
+    font-family: 'Kiwi Maru', serif;
 }
 
 #path1 {
