@@ -26,10 +26,16 @@
     background: #09DDE0
 }
 
-.Message {
-    height: 5vw;
+.Message p {
+    display: inline;
+    background-color: #dbffd8;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
     font-size: 5vw;
     font-family: 'Kiwi Maru', serif;
+    border-radius: 4vw;
+    padding-left: 3vw;
+    padding-right: 3vw;
 }
 
 .Svg {

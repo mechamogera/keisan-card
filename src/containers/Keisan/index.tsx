@@ -118,7 +118,7 @@ function Keisan({resultRange,
   return (
     <div className="Minus">
       <div className="Timer"><span>{('00' + minutes).slice(-2)}</span>:<span>{('00' + seconds).slice(-2)}</span></div>
-      <div className="Message">{message}</div>
+      <div className="Message"><p>{message}</p></div>
       <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 143 67" xmlSpace="preserve"
       className="Svg">
         <desc>Created with Fabric.js 5.3.0</desc>
