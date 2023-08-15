@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/keisan-card/static/css/main.4d40a791.css",
-    "main.js": "/keisan-card/static/js/main.071494e0.js",
+    "main.js": "/keisan-card/static/js/main.6f2affc2.js",
     "static/js/787.9d93aea8.chunk.js": "/keisan-card/static/js/787.9d93aea8.chunk.js",
     "index.html": "/keisan-card/index.html",
     "main.4d40a791.css.map": "/keisan-card/static/css/main.4d40a791.css.map",
-    "main.071494e0.js.map": "/keisan-card/static/js/main.071494e0.js.map",
+    "main.6f2affc2.js.map": "/keisan-card/static/js/main.6f2affc2.js.map",
     "787.9d93aea8.chunk.js.map": "/keisan-card/static/js/787.9d93aea8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4d40a791.css",
-    "static/js/main.071494e0.js"
+    "static/js/main.6f2affc2.js"
   ]
 }
