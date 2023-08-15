@@ -131,7 +131,9 @@ function Keisan({resultRange,
         <path id="path2" vector-effect="non-scaling-stroke"  transform=" translate(0, 0)" d="M 0 -8.04505 C 4.44087 -8.04505 8.04505 -4.44087 8.04505 0 C 8.04505 4.44087 4.44087 8.04505 0 8.04505 C -4.44087 8.04505 -8.04505 4.44087 -8.04505 0 C -8.04505 -4.44087 -4.44087 -8.04505 0 -8.04505 z" stroke-linecap="round" />
         </g>
         <g transform="matrix(1 0 0 1 82.2328910304 33.216879686)"  id="DGg7km4RwZXg7n7ySh3Dw">
-            <text xmlSpace="preserve" font-family="Open Sans" font-size="31" font-style="normal" font-weight="normal" line-height="1" id="txt"><tspan x="-48.4904785156" y="11.25334">{numFirst} {operation} {numSecound}</tspan></text>
+            <text xmlSpace="preserve" font-family="Open Sans" font-size="31" font-style="normal" font-weight="normal" line-height="1" id="txt"><tspan x="-48.4904785156" y="11.25334">
+              {('  ' + numFirst).slice(-2)} {operation} {(numSecound)}
+            </tspan></text>
         </g>
       </svg>
       <div className="Result">
