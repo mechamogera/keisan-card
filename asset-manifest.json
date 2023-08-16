@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/keisan-card/static/css/main.38ba074f.css",
-    "main.js": "/keisan-card/static/js/main.fc715fd1.js",
+    "main.js": "/keisan-card/static/js/main.f676054b.js",
     "static/js/787.9d93aea8.chunk.js": "/keisan-card/static/js/787.9d93aea8.chunk.js",
     "static/media/volumeicon.svg": "/keisan-card/static/media/volumeicon.988489c34c50d04810b78407b73ee9c3.svg",
     "static/media/volumeofficon.svg": "/keisan-card/static/media/volumeofficon.6e904d512c8d8803401b948116bede67.svg",
     "index.html": "/keisan-card/index.html",
     "main.38ba074f.css.map": "/keisan-card/static/css/main.38ba074f.css.map",
-    "main.fc715fd1.js.map": "/keisan-card/static/js/main.fc715fd1.js.map",
+    "main.f676054b.js.map": "/keisan-card/static/js/main.f676054b.js.map",
     "787.9d93aea8.chunk.js.map": "/keisan-card/static/js/787.9d93aea8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.38ba074f.css",
-    "static/js/main.fc715fd1.js"
+    "static/js/main.f676054b.js"
   ]
 }
