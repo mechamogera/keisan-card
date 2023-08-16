@@ -124,16 +124,27 @@ function Keisan({resultRange,
   return (
     <div className="Minus">
       <div className="Header">
-        <div className="Timer"><span>{('00' + minutes).slice(-2)}</span>:<span>{('00' + seconds).slice(-2)}</span></div>
+        <div title="経過時間"
+          className="Timer">
+          <span>{('00' + minutes).slice(-2)}</span>:<span>{('00' + seconds).slice(-2)}</span>
+        </div>
         <div className="Settings">
           <button className="Speaker"
-          style={{ backgroundImage: `url(${nospeech ? volumeoffIcon : volumeIcon})`}} 
-          onClick={ SpeakerClick }
+            style={{ backgroundImage: `url(${nospeech ? volumeoffIcon : volumeIcon})`}} 
+            onClick={ SpeakerClick } 
+            title="音声の有り無しの切り替え"
           ></button>
         </div>
       </div>
-      <div className="Message"><p>{message}</p></div>
-      <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 143 67" xmlSpace="preserve"
+      <div className="Message"
+        title="メッセージ">
+        <p>{message}</p>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" 
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+        version="1.1"
+        viewBox="0 0 143 67"
+        xmlSpace="preserve"
       className="Svg">
         <desc>Created with Fabric.js 5.3.0</desc>
         <defs>
@@ -145,7 +156,7 @@ function Keisan({resultRange,
         <path id="path2" vector-effect="non-scaling-stroke"  transform=" translate(0, 0)" d="M 0 -8.04505 C 4.44087 -8.04505 8.04505 -4.44087 8.04505 0 C 8.04505 4.44087 4.44087 8.04505 0 8.04505 C -4.44087 8.04505 -8.04505 4.44087 -8.04505 0 C -8.04505 -4.44087 -4.44087 -8.04505 0 -8.04505 z" stroke-linecap="round" />
         </g>
         <g transform="matrix(1 0 0 1 82.2328910304 33.216879686)"  id="DGg7km4RwZXg7n7ySh3Dw">
-            <text xmlSpace="preserve" font-family="Open Sans" font-size="31" font-style="normal" font-weight="normal" line-height="1" id="txt"><tspan x="-48.4904785156" y="11.25334">
+            <text xmlSpace="preserve" font-size="31" font-style="normal" font-weight="normal" line-height="1" id="txt"><tspan x="-48.4904785156" y="11.25334">
               {('  ' + numFirst).slice(-2)} {operation} {(numSecound)}
             </tspan></text>
         </g>
