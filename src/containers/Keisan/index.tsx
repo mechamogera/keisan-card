@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useStopwatch } from "react-timer-hook";
 import './keisan.css';
+import volumeIcon from './volumeicon.svg';
+import volumeoffIcon from './volumeofficon.svg';
 
 function Keisan({resultRange, 
                 operation, 
@@ -37,6 +39,10 @@ function Keisan({resultRange,
     }
   }
 
+
+  const search = useLocation().search;
+  const query = new URLSearchParams(search);
+
   const [numFirst, setNumFirst] = useState(0);
   const [numSecound, setNumSecound] = useState(0);
   const [numQuestion, setNumQuestion] = useState(0);
@@ -44,13 +50,10 @@ function Keisan({resultRange,
   const [message, setMessage] = useState("");
   const [disableButton, setDisableButton] = useState(false);
   const [resultNumber, setResultNumber] = useState<number|null>(null)
+  const [nospeech, setNospeech] = useState(!!query.get('nospeech'));
 
   const { seconds, minutes, hours, days, isRunning, start, pause, reset } =
     useStopwatch({ autoStart: true });
-
-  const search = useLocation().search;
-  const query = new URLSearchParams(search);
-  const nospeech = query.get('nospeech');
 
 
   function nextQuestion() {
@@ -106,6 +109,10 @@ function Keisan({resultRange,
     }
   }
 
+  const SpeakerClick = () => {
+    setNospeech((prevVal) => { return !prevVal; })
+  }
+
   const Results = () => {
     const List = [];
     for (let i = resultRange[0]; i <= resultRange[1]; i++) {
@@ -114,10 +121,17 @@ function Keisan({resultRange,
     return List;
   }
 
-
   return (
     <div className="Minus">
-      <div className="Timer"><span>{('00' + minutes).slice(-2)}</span>:<span>{('00' + seconds).slice(-2)}</span></div>
+      <div className="Header">
+        <div className="Timer"><span>{('00' + minutes).slice(-2)}</span>:<span>{('00' + seconds).slice(-2)}</span></div>
+        <div className="Settings">
+          <button className="Speaker"
+          style={{ backgroundImage: `url(${nospeech ? volumeoffIcon : volumeIcon})`}} 
+          onClick={ SpeakerClick }
+          ></button>
+        </div>
+      </div>
       <div className="Message"><p>{message}</p></div>
       <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 143 67" xmlSpace="preserve"
       className="Svg">

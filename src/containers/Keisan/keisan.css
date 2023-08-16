@@ -43,11 +43,40 @@
     width: 40vw;
 }
 
+.Header {
+    width: "100%";
+    display: flex;
+    justify-content: space-between;
+}
+
 .Timer {
-    text-align: left;
+    display: inline-block; 
     padding-left: 1vw;
     font-size: 3vw;
     font-family: 'Kiwi Maru', serif;
+}
+
+.Settings {
+    display: inline-block;
+    padding: 1vw;
+}
+
+.Settings button {
+    width: 5vw;
+    height: 5vw;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 3vw;
+
+    transition: transform .2s;
+    &:active{
+        transform: scale(.8);
+    }
+}
+
+.Speaker {
+    background-size: 80%;
 }
 
 #path1 {
