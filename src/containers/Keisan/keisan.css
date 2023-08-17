@@ -73,10 +73,9 @@
     &:active{
         transform: scale(.8);
     }
-}
 
-.Speaker {
     background-size: 80%;
+    margin-left: 1vw;
 }
 
 #path1 {

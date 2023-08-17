@@ -2,9 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useStopwatch } from "react-timer-hook";
 import './keisan.css';
+
 import volumeIcon from './volumeicon.svg';
 import volumeoffIcon from './volumeofficon.svg';
+import refreshIcon from './refreshicon.svg';
+
 import { useCookies } from 'react-cookie';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 function Keisan({resultRange, 
                 operation, 
@@ -124,6 +129,23 @@ function Keisan({resultRange,
     });
   }
 
+  const RefreshClick = () => {
+    confirmAlert({
+      title: "かくにん",
+      message: "さいしょからやりなおしますか？",
+      buttons: [
+        {
+          label: 'はい',
+          onClick: () => { window.location.reload(); }
+        },
+        {
+          label: 'いいえ',
+          onClick: () => {}
+        }
+      ]
+    });
+  }
+
   const Results = () => {
     const List = [];
     for (let i = resultRange[0]; i <= resultRange[1]; i++) {
@@ -143,8 +165,14 @@ function Keisan({resultRange,
           <button className="Speaker"
             style={{ backgroundImage: `url(${nospeech ? volumeoffIcon : volumeIcon})`}} 
             onClick={ SpeakerClick } 
-            title="音声の有り無しの切り替え"
-          ></button>
+            title="音声の有り無しの切り替え">
+          </button>
+
+          <button className="Refresh" 
+            style={{ backgroundImage: `url(${refreshIcon})` }} 
+            onClick={ RefreshClick } 
+            title="最初からやり直す">
+          </button>
         </div>
       </div>
       <div className="Message"
