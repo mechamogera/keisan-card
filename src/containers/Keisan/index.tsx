@@ -4,6 +4,7 @@ import { useStopwatch } from "react-timer-hook";
 import './keisan.css';
 import volumeIcon from './volumeicon.svg';
 import volumeoffIcon from './volumeofficon.svg';
+import { useCookies } from 'react-cookie';
 
 function Keisan({resultRange, 
                 operation, 
@@ -49,8 +50,14 @@ function Keisan({resultRange,
   const [result, setResult] = useState(0);
   const [message, setMessage] = useState("");
   const [disableButton, setDisableButton] = useState(false);
-  const [resultNumber, setResultNumber] = useState<number|null>(null)
-  const [nospeech, setNospeech] = useState(!!query.get('nospeech'));
+  const [resultNumber, setResultNumber] = useState<number|null>(null);
+
+  const [cookies, setCookie, removeCookie] = useCookies(["nospeech"]);
+
+  const [nospeech, setNospeech] = useState<boolean>(
+    query.get("nospeech") ? 
+      !!query.get("nospeech") : 
+      cookies.nospeech === "true");
 
   const { seconds, minutes, hours, days, isRunning, start, pause, reset } =
     useStopwatch({ autoStart: true });
@@ -110,7 +117,11 @@ function Keisan({resultRange,
   }
 
   const SpeakerClick = () => {
-    setNospeech((prevVal) => { return !prevVal; })
+    setNospeech((prevVal) => { 
+      setCookie("nospeech", !prevVal);
+      console.log("set", !prevVal);
+      return !prevVal; 
+    });
   }
 
   const Results = () => {
