@@ -62,12 +62,12 @@
 }
 
 .Settings button {
-    width: 5vw;
-    height: 5vw;
+    width: 8vw;
+    height: 8vw;
 
     background-repeat: no-repeat;
     background-position: center center;
-    border-radius: 3vw;
+    border-radius: 4vw;
 
     transition: transform .2s;
     &:active{
