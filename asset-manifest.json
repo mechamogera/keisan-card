@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/keisan-card/static/css/main.25e16e80.css",
-    "main.js": "/keisan-card/static/js/main.77e3bb4a.js",
+    "main.css": "/keisan-card/static/css/main.88834c22.css",
+    "main.js": "/keisan-card/static/js/main.ebcecdf1.js",
     "static/js/787.9d93aea8.chunk.js": "/keisan-card/static/js/787.9d93aea8.chunk.js",
     "static/media/volumeicon.svg": "/keisan-card/static/media/volumeicon.988489c34c50d04810b78407b73ee9c3.svg",
     "static/media/volumeofficon.svg": "/keisan-card/static/media/volumeofficon.6e904d512c8d8803401b948116bede67.svg",
     "index.html": "/keisan-card/index.html",
     "static/media/refreshicon.svg": "/keisan-card/static/media/refreshicon.99362cdf0975fb34e0bfca206c3cc35a.svg",
-    "main.25e16e80.css.map": "/keisan-card/static/css/main.25e16e80.css.map",
-    "main.77e3bb4a.js.map": "/keisan-card/static/js/main.77e3bb4a.js.map",
+    "main.88834c22.css.map": "/keisan-card/static/css/main.88834c22.css.map",
+    "main.ebcecdf1.js.map": "/keisan-card/static/js/main.ebcecdf1.js.map",
     "787.9d93aea8.chunk.js.map": "/keisan-card/static/js/787.9d93aea8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.25e16e80.css",
-    "static/js/main.77e3bb4a.js"
+    "static/css/main.88834c22.css",
+    "static/js/main.ebcecdf1.js"
   ]
 }
