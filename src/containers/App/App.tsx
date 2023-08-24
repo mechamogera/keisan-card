@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css';
 import Keisan from '../Keisan';
+import Select from '../Select';
 
 
 function App() {
@@ -51,6 +52,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <Routes>
+        <Route path="/keisan-card"
+               element= { <Select /> } />
         <Route path="/keisan-card/plus" 
                element={ <Keisan resultRange={[0, 10]} 
                                 operation="+"
