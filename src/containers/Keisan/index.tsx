@@ -45,6 +45,29 @@ function Keisan({resultRange,
     }
   }
 
+  function displayAlert(title:string, message:string, onOk:() => void) {
+    confirmAlert({
+      customUI: ({ onClose }) => {
+        return (
+          <div id="react-confirm-alert">
+            <div className="react-confirm-alert-overlay">
+              <div className="react-confirm-alert">
+                <div className="react-confirm-alert-body-custom">
+                  <h1>{title}</h1>
+                  {message}
+                  <div className="react-confirm-alert-button-group-custom">
+                    <button onClick={onOk}>はい</button>
+                    <button onClick={onClose}>いいえ</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      }
+    });
+  }
+
 
   const search = useLocation().search;
   const query = new URLSearchParams(search);
@@ -130,20 +153,7 @@ function Keisan({resultRange,
   }
 
   const RefreshClick = () => {
-    confirmAlert({
-      title: "かくにん",
-      message: "さいしょからやりなおしますか？",
-      buttons: [
-        {
-          label: 'はい',
-          onClick: () => { window.location.reload(); }
-        },
-        {
-          label: 'いいえ',
-          onClick: () => {}
-        }
-      ]
-    });
+    displayAlert("かくにん", "さいしょからやりなおしますか？", () => { window.location.reload(); });
   }
 
   const Results = () => {

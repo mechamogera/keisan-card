@@ -119,3 +119,42 @@
     white-space: pre;
     font-family: 'Kiwi Maru', serif;
 }
+
+.react-confirm-alert-body-custom h1 {
+    text-align: center;
+    font-family: 'Kiwi Maru', serif;
+}
+
+.react-confirm-alert-body-custom {
+    font-family: 'Kiwi Maru', serif;
+    width: 400px;
+    padding: 30px;
+    text-align: center;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 20px 75px rgba(0, 0, 0, 0.13);
+    color: #666;
+}
+
+.react-confirm-alert-button-group-custom {
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.react-confirm-alert-button-group-custom > button {
+    outline: none;
+    background: #333;
+    border: none;
+    display: inline-block;
+    padding: 6px 18px;
+    color: #eee;
+    margin-right: 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: 'Kiwi Maru', serif;
+}
