@@ -6,6 +6,7 @@ import './keisan.css';
 import volumeIcon from './volumeicon.svg';
 import volumeoffIcon from './volumeofficon.svg';
 import refreshIcon from './refreshicon.svg';
+import returnIcon from './returnicon.svg';
 
 import { useCookies } from 'react-cookie';
 import { confirmAlert } from 'react-confirm-alert';
@@ -156,6 +157,10 @@ function Keisan({resultRange,
     displayAlert("かくにん", "さいしょからやりなおしますか？", () => { window.location.reload(); });
   }
 
+  const ReturnClick = () => {
+    displayAlert("かくにん", "とっぷがめんにもどりますか？", () => { window.location.href = "/keisan-card"; });
+  }
+
   const Results = () => {
     const List = [];
     for (let i = resultRange[0]; i <= resultRange[1]; i++) {
@@ -182,6 +187,12 @@ function Keisan({resultRange,
             style={{ backgroundImage: `url(${refreshIcon})` }} 
             onClick={ RefreshClick } 
             title="最初からやり直す">
+          </button>
+
+          <button className="Return" 
+            style={{ backgroundImage: `url(${returnIcon})` }} 
+            onClick={ ReturnClick } 
+            title="トップに戻る">
           </button>
         </div>
       </div>

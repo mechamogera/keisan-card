@@ -74,8 +74,19 @@
         transform: scale(.8);
     }
 
-    background-size: 80%;
     margin-left: 1vw;
+}
+
+.Speaker {
+    background-size: 80%;
+}
+
+.Refresh {
+    background-size: 80%;
+}
+
+.Return {
+    background-size: 60%;
 }
 
 #path1 {
