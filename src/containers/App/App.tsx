@@ -45,6 +45,17 @@ function App() {
   }
   const plusMoveUpList = makePlusMoveUpList();
 
+  function makeMinusCarryDownList(): { num1: number, num2: number }[] {
+    const minusList: { num1: number, num2: number }[] = []
+    for (let i = 11; i <= 18; i++) {
+      for (let j = i - 9; j <= 9; j++) {
+        minusList.push({ num1: i, num2: j });
+      }
+    }
+    return minusList;
+  }
+  const minusCarryDownList = makeMinusCarryDownList();
+
   function getNextValueProc(list: {num1:number, num2:number}[],
                             makeList: () => {num1:number, num2:number}[]) : 
     (beforNum1:number, beforeNum2:number) => { num1: number, num2: number } {
@@ -80,6 +91,11 @@ function App() {
                                  operation="+"
                                  listSize={plusMoveUpList.length}
                                  nextValueProc={getNextValueProc(plusMoveUpList, makePlusMoveUpList)} /> } />
+        <Route path="/keisan-card/minus-carrydown"
+              element={<Keisan resultRange={[2, 9]}
+                               operation="-"
+                               listSize={minusCarryDownList.length}
+                               nextValueProc={getNextValueProc(minusCarryDownList, makeMinusCarryDownList)} />} />
         <Route path="*" 
                element={ <Keisan resultRange={[0, 10]} 
                                 operation="-"
