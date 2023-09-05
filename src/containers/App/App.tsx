@@ -16,7 +16,7 @@ function App() {
     const minusList:{ num1:number, num2:number }[] = []
     for (let i = 0; i <= 10; i++) {
       for (let j = 0; j <= i; j++) {
-        minusList.push({num1: i, num2: j}) 
+        minusList.push({num1: i, num2: j}); 
       }
     }
     return minusList;
@@ -27,12 +27,23 @@ function App() {
     const plusList:{ num1:number, num2:number }[] = []
     for (let i = 0; i <= 10; i++) {
       for (let j = 0; j <= 10 - i; j++) {
-        plusList.push({num1: i, num2: j}) 
+        plusList.push({num1: i, num2: j});
       }
     }
     return plusList;
   }
   const plusList = makePlusList();
+
+  function makePlusMoveUpList() : {num1:number, num2:number}[] {
+    const plusList: { num1:number, num2:number }[] = []
+    for (let i = 2; i <= 9; i++) {
+      for (let j = 11 - i; j <= 9; j++) {
+        plusList.push({num1: i, num2: j});
+      }
+    }
+    return plusList;
+  }
+  const plusMoveUpList = makePlusMoveUpList();
 
   function getNextValueProc(list: {num1:number, num2:number}[],
                             makeList: () => {num1:number, num2:number}[]) : 
@@ -64,6 +75,11 @@ function App() {
                                 operation="+"
                                 listSize={3}
                                 nextValueProc={() => { return {num1: 1, num2: 2} }} /> } />
+        <Route path="/keisan-card/plus-moveup"
+               element={ <Keisan resultRange={[11, 18]}
+                                 operation="+"
+                                 listSize={plusMoveUpList.length}
+                                 nextValueProc={getNextValueProc(plusMoveUpList, makePlusMoveUpList)} /> } />
         <Route path="*" 
                element={ <Keisan resultRange={[0, 10]} 
                                 operation="-"

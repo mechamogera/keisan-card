@@ -11,6 +11,9 @@ function Select() {
                 <div className="link">
                     <a href="/keisan-card/minus">くりさがりなし ひきざん</a>
                 </div>
+                <div className="link">
+                    <a href="/keisan-card/plus-moveup">くりあがりあり たしざん</a>
+                </div>
             </div>
         </div>
     );
