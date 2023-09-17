@@ -3,14 +3,15 @@
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 5vw;
-    gap: 1vw;
+    gap: 6vw;
 }
 
 .ResultButton {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30%;
+    width: 25vw;
+    height: 25vw;
     border-radius: 4vw;
     background: #AFDFE4;
     transition: transform .2s;
