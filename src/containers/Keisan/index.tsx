@@ -215,13 +215,13 @@ function Keisan({resultRange,
         <defs>
         </defs>
         <g transform="matrix(1 0 0 1 71.399839099 33.216879686)" id="pC9xTmbnF08ShyWQyhTOu"  >
-        <path id="path1" vector-effect="non-scaling-stroke"  transform=" translate(0, 0)" d="M -63.95817 26.34755 L -63.95817 -26.347540000000002 L 48.27031 -26.347540000000002 L 63.95816 -12.268700000000003 L 63.95816 26.34755 z" stroke-linecap="round" />
+        <path id="path1" vectorEffect="non-scaling-stroke"  transform=" translate(0, 0)" d="M -63.95817 26.34755 L -63.95817 -26.347540000000002 L 48.27031 -26.347540000000002 L 63.95816 -12.268700000000003 L 63.95816 26.34755 z" strokeLinecap="round" />
         </g>
         <g transform="matrix(0.6674346462 0 0 0.6674346462 22.8450079881 33.216879686)" id="ds_CRH4EIXnDdjH3cn4ez"  >
-        <path id="path2" vector-effect="non-scaling-stroke"  transform=" translate(0, 0)" d="M 0 -8.04505 C 4.44087 -8.04505 8.04505 -4.44087 8.04505 0 C 8.04505 4.44087 4.44087 8.04505 0 8.04505 C -4.44087 8.04505 -8.04505 4.44087 -8.04505 0 C -8.04505 -4.44087 -4.44087 -8.04505 0 -8.04505 z" stroke-linecap="round" />
+        <path id="path2" vectorEffect="non-scaling-stroke"  transform=" translate(0, 0)" d="M 0 -8.04505 C 4.44087 -8.04505 8.04505 -4.44087 8.04505 0 C 8.04505 4.44087 4.44087 8.04505 0 8.04505 C -4.44087 8.04505 -8.04505 4.44087 -8.04505 0 C -8.04505 -4.44087 -4.44087 -8.04505 0 -8.04505 z" strokeLinecap="round" />
         </g>
         <g transform="matrix(1 0 0 1 82.2328910304 33.216879686)"  id="DGg7km4RwZXg7n7ySh3Dw">
-            <text xmlSpace="preserve" font-size="31" font-style="normal" font-weight="normal" line-height="1" id="txt"><tspan x="-48.4904785156" y="11.25334">
+            <text xmlSpace="preserve" fontSize="31" fontStyle="normal" fontWeight="normal" line-height="1" id="txt"><tspan x="-48.4904785156" y="11.25334">
               {('  ' + numFirst).slice(-2)} {operation} {(numSecound)}
             </tspan></text>
         </g>
