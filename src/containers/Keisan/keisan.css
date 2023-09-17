@@ -19,6 +19,10 @@
         transform: scale(.95);
         background: #09DDE0
     }
+    &:disabled{
+        transform: scale(1);
+        background: #AFDFE4;
+    }
     font-size: 8vw;
     font-family: 'Kiwi Maru', serif;
 }
