@@ -11,6 +11,7 @@ import returnIcon from './returnicon.svg';
 import { useCookies } from 'react-cookie';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+import NoSleep from 'nosleep.js';
 
 function Keisan({resultRange, 
                 operation, 
@@ -83,6 +84,8 @@ function Keisan({resultRange,
 
   const [cookies, setCookie, removeCookie] = useCookies(["nospeech"]);
 
+  const nosleep = new NoSleep();
+
   const [nospeech, setNospeech] = useState<boolean>(
     query.get("nospeech") ? 
       !!query.get("nospeech") : 
@@ -96,6 +99,7 @@ function Keisan({resultRange,
     if (numQuestion >= listSize) {
       setMessage("おわり");
       pause();
+      nosleep.disable();
       return;
     }
 
@@ -121,6 +125,7 @@ function Keisan({resultRange,
   }, []);
 
   async function onClick(e: React.MouseEvent<HTMLElement>) {
+    nosleep.enable();
     const myresult = Number(e.currentTarget.textContent);
     if (result === myresult) {
       setDisableButton(true);
