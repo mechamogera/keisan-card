@@ -4,8 +4,10 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    font-size: 4vw;
+    font-family: 'Kiwi Maru', serif;
 }
 
 .link {
-    
+    margin-bottom: 5vh;
 }
