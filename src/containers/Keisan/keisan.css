@@ -143,6 +143,7 @@
 
 .react-confirm-alert-body-custom {
     font-family: 'Kiwi Maru', serif;
+    font-size: 4vw;
     width: 400px;
     padding: 30px;
     text-align: center;
@@ -173,4 +174,5 @@
     font-size: 12px;
     cursor: pointer;
     font-family: 'Kiwi Maru', serif;
+    font-size: 4vw;
 }
